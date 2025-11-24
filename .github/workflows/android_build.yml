@@ -11,30 +11,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: ‘temurin’
-          java-version: 17
+          distribution: 'temurin'
+          java-version: '17'
           cache: gradle
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          cmdline-tools-version: 8512546  # 예시
-          accept-android-sdk-licenses: true
+      - name: Decode keystore
+        run: |
+          echo "$KEYSTORE_FILE" | base64 --decode > tts_keystore.p12
+        env:
+          KEYSTORE_FILE: ${{ secrets.KEYSTORE_FILE }}
 
-      - name: Grant execute permission for gradlew
+      - name: Grant permissions
         run: chmod +x ./gradlew
 
-      - name: Assemble Release APK
-        run: ./gradlew :app:assembleRelease
+      - name: Build Release APK
+        run: ./gradlew assembleRelease
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_ALIAS_PASSWORD: ${{ secrets.KEY_ALIAS_PASSWORD }}
 
-      - name: Upload Release APK
+      - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: tts-audiobook-release-apk
+          name: tts-audiobook-release
           path: app/build/outputs/apk/release/*.apk

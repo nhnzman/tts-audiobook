@@ -1,1 +1,24 @@
-// Top-level build file
+// Top‑level build file for the Rao TTS project.  This file defines the
+// repositories and Gradle plugins used across modules.  It is intentionally
+// simple to minimise external dependencies.  The actual application module
+// configuration lives in `app/build.gradle`.
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Android Gradle plugin to build the application module
+        classpath("com.android.tools.build:gradle:8.1.1")
+        // Kotlin Gradle plugin for Kotlin support
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.22")
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}

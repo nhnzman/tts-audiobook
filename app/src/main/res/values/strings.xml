@@ -1,1 +1,26 @@
-<resources><string name="app_name">라오TTS</string></resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Rao TTS</string>
+    <string name="choose_subject">과목 선택</string>
+    <string name="enter_text">텍스트를 입력하거나 불러오세요…</string>
+    <string name="paste">붙여넣기</string>
+    <string name="import">파일 불러오기</string>
+    <string name="convert">음성 변환</string>
+    <string name="please_enter_text">먼저 텍스트를 입력하세요.</string>
+    <string name="files_imported">%1$d개의 파일을 불러왔습니다.</string>
+    <string name="no_clipboard_data">클립보드에 텍스트가 없습니다.</string>
+    <string name="converting">변환 중…</string>
+    <string name="please_wait">잠시만 기다려주세요.</string>
+    <string name="conversion_complete">변환이 완료되었습니다.</string>
+    <string name="using_default_save_dir">저장 경로를 지정하지 않아 기본 경로를 사용합니다.</string>
+    <string name="new_subject">새 과목…</string>
+    <string name="enter_subject_name">과목 이름을 입력하세요</string>
+    <string name="subject_name">과목 이름</string>
+    <string name="no_audio">재생 중인 파일이 없습니다</string>
+    <string name="previous">이전</string>
+    <string name="play_pause">재생/일시정지</string>
+    <string name="next">다음</string>
+    <string name="playing_audio">오디오 재생 중</string>
+    <string name="playback_channel_name">Rao TTS 재생</string>
+    <string name="playback_channel_desc">Rao TTS 오디오 재생 알림</string>
+</resources>

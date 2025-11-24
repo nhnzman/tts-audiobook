@@ -1,26 +1,69 @@
-
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
-    namespace 'com.lao.tts'
-    compileSdk 34
+    namespace = "com.lao.tts"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId "com.lao.tts"
-        minSdk 24
-        targetSdk 34
-        versionCode 1
-        versionName "1.0"
+        applicationId = "com.lao.tts"
+        minSdk = 26
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
     }
 
     buildFeatures {
-        viewBinding true
+        viewBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    signingConfigs {
+        // The release signing configuration pulls credentials from environment
+        // variables defined in the GitHub Actions workflow.  Locally you can
+        // define these variables in your shell or via a gradle.properties
+        // file.  See README for details.
+        create("release") {
+            val keystoreFile = rootProject.layout.projectDirectory.file("keystore.jks").asFile
+            storeFile = keystoreFile
+            storePassword = System.getenv("KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("KEY_ALIAS")
+            keyPassword = System.getenv("KEY_PASSWORD")
+        }
+    }
+
+    buildTypes {
+        getByName("debug") {
+            // Debug builds can remain unsigned
+            signingConfig = null
+        }
+        getByName("release") {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("release")
+        }
     }
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation("androidx.core:core-ktx:1.10.1")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.activity:activity-ktx:1.7.2")
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+    // ExoPlayer for audio playback
+    implementation("com.google.android.exoplayer:exoplayer:2.18.2")
+    implementation("com.google.android.exoplayer:exoplayer-ui:2.18.2")
 }

@@ -1,1 +1,6 @@
-rootProject.name='RaoTTS'
+// Settings file for the Rao TTS project.  This defines the name of the root
+// project and includes the `app` module.  Android Studio uses this file to
+// construct the project tree.
+
+rootProject.name = "RaoTTS"
+include(":app")

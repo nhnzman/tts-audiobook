@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+    namespace "com.example.audiobook"
     compileSdk 34
 
     defaultConfig {

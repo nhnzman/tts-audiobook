@@ -1,48 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permissions to read and write files on external storage.  In Android 10+ the legacy flag is set in the application element below. -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.laotts.app">
     <application
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.TTSAudioBook"
-        android:requestLegacyExternalStorage="true">
-
-        <activity android:name=".AudioPlayerActivity"
-            android:label="@string/title_activity_audio_player"
-            android:exported="false" />
-        <activity android:name=".MainActivity"
-            android:exported="true">
+        android:label="라오TTS"
+        android:allowBackup="true">
+        <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <!-- Service responsible for long‑running background conversions.  Declared
-             here so that it can run even when the app is in the background. -->
-        <service
-            android:name=".ConversionService"
-            android:foregroundServiceType="dataSync"
-            android:exported="false" />
-
-        <!-- Service used by ExoPlayer during playback for background audio.
-             Note: ExoPlayer automatically manages this when using a MediaSession.
-             We still declare it here for clarity. -->
-        <service
-            android:name=".PlayerService"
-            android:foregroundServiceType="mediaPlayback"
-            android:exported="false" />
     </application>
-
 </manifest>

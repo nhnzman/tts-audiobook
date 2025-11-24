@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ttsaudiobook">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Permissions to read and write files on external storage.  In Android 10+ the legacy flag is set in the application element below. -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

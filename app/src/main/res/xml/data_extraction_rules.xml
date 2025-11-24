@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <!-- This placeholder is required for allowBackup.  See https://developer.android.com/about/versions/12/backup-restore -->
+    <cloud-backup>
+        <include domain="sharedpref"/>
+    </cloud-backup>
+</data-extraction-rules>

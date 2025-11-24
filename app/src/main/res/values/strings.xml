@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TTS Audio Book</string>
+    <string name="paste_text">Paste Text</string>
+    <string name="import_text">Import Text File</string>
+    <string name="view_books">My Audio Books</string>
+    <string name="select_subject">Select Subject</string>
+    <string name="enter_title">Enter Title</string>
+    <string name="start_conversion">Start Conversion</string>
+    <string name="choose_voice">Choose a voice</string>
+    <string name="converting">Converting…</string>
+    <string name="title_activity_audio_player">Audio Player</string>
+</resources>

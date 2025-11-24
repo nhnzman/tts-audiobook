@@ -1,9 +1,6 @@
 
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.laotts.app">
-    <application
-        android:label="라오TTS"
-        android:allowBackup="true">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application android:label="Rao TTS" android:icon="@mipmap/ic_launcher">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
